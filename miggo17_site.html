@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miggo17 | A Jornada de um Criador</title>
+  <meta name="description" content="Página de homenagem e divulgação do criador Miggo17. YouTube, Discord e TikTok.">
+  <style>
+    :root{
+      --bg:#070912;
+      --panel:#0e1322;
+      --panel2:#121a2d;
+      --text:#f5f7ff;
+      --muted:#aab2c7;
+      --cyan:#28d7ff;
+      --purple:#8b5cf6;
+      --pink:#ff3ea5;
+      --line:rgba(255,255,255,.09);
+      --shadow:0 20px 60px rgba(0,0,0,.42);
+    }
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,Segoe UI,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 10%,rgba(40,215,255,.16),transparent 30%),
+        radial-gradient(circle at 85% 15%,rgba(139,92,246,.17),transparent 30%),
+        linear-gradient(180deg,#060812 0%,#080b15 50%,#05060c 100%);
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    .topbar{
+      position:fixed;top:0;left:0;right:0;z-index:20;
+      backdrop-filter:blur(14px);
+      background:rgba(5,7,15,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      max-width:1120px;margin:auto;padding:15px 22px;
+      display:flex;align-items:center;justify-content:space-between;gap:20px;
+    }
+    .brand{font-weight:900;letter-spacing:.8px}
+    .brand span{color:var(--cyan)}
+    .links{display:flex;gap:18px;font-size:14px;color:var(--muted)}
+    .links a:hover{color:white}
+    .hero{
+      min-height:100vh;display:flex;align-items:center;
+      max-width:1120px;margin:auto;padding:110px 22px 70px;
+      position:relative;
+    }
+    .hero:before{
+      content:"";position:absolute;width:420px;height:420px;border-radius:50%;
+      right:-100px;top:130px;
+      background:radial-gradient(circle,rgba(40,215,255,.22),transparent 65%);
+      filter:blur(10px);pointer-events:none;
+    }
+    .hero-content{max-width:760px;position:relative;z-index:1}
+    .tag{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 12px;border:1px solid rgba(40,215,255,.25);
+      background:rgba(40,215,255,.07);border-radius:999px;
+      color:#b9f4ff;font-size:13px;font-weight:800;
+    }
+    h1{
+      font-size:clamp(48px,9vw,92px);line-height:.92;margin:20px 0;
+      letter-spacing:-4px;
+    }
+    h1 .grad{
+      background:linear-gradient(90deg,var(--cyan),#fff,var(--purple));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .lead{font-size:clamp(18px,2.5vw,23px);line-height:1.6;color:var(--muted);max-width:700px}
+    .buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .btn{
+      padding:14px 19px;border-radius:13px;font-weight:900;
+      border:1px solid var(--line);transition:.2s;display:inline-flex;align-items:center;gap:9px;
+    }
+    .btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.25)}
+    .primary{background:linear-gradient(135deg,var(--cyan),#2477ff);color:#031018;border:0}
+    .discord{background:linear-gradient(135deg,#5865f2,#8b5cf6);border:0}
+    .tiktok{background:linear-gradient(135deg,#171717,#303030);border:1px solid #454545}
+    section{max-width:1120px;margin:auto;padding:90px 22px}
+    .section-head{margin-bottom:34px}
+    .eyebrow{color:var(--cyan);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+    h2{font-size:clamp(32px,5vw,52px);margin:10px 0}
+    .section-head p{color:var(--muted);max-width:720px;line-height:1.7}
+    .story{
+      display:grid;grid-template-columns:1.2fr .8fr;gap:22px;
+    }
+    .card{
+      background:linear-gradient(145deg,rgba(18,26,45,.92),rgba(9,13,25,.92));
+      border:1px solid var(--line);border-radius:22px;padding:28px;
+      box-shadow:var(--shadow);
+    }
+    .story .card p{color:#c5cbda;line-height:1.8}
+    .quote{
+      border-left:3px solid var(--cyan);padding-left:18px;
+      color:#fff;font-weight:800;font-size:20px;line-height:1.5;
+    }
+    .timeline{display:grid;gap:14px;margin-top:24px}
+    .step{
+      display:grid;grid-template-columns:80px 1fr;gap:18px;align-items:start;
+      padding:20px;border-radius:17px;background:rgba(255,255,255,.025);
+      border:1px solid var(--line);
+    }
+    .num{font-size:28px;font-weight:1000;color:var(--cyan)}
+    .step h3{margin:0 0 6px;font-size:19px}
+    .step p{margin:0;color:var(--muted);line-height:1.65}
+    .warning{
+      margin-top:22px;padding:16px 18px;border-radius:15px;
+      background:rgba(255,62,165,.06);border:1px solid rgba(255,62,165,.18);
+      color:#d8dbea;font-size:13px;line-height:1.6;
+    }
+    .socials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .social{
+      padding:28px;border-radius:22px;border:1px solid var(--line);
+      background:linear-gradient(145deg,#10172a,#0b0f1c);
+      transition:.2s;min-height:210px;display:flex;flex-direction:column;
+    }
+    .social:hover{transform:translateY(-5px);border-color:rgba(40,215,255,.35)}
+    .icon{font-size:34px;margin-bottom:18px}
+    .social h3{margin:0 0 8px;font-size:23px}
+    .social p{color:var(--muted);line-height:1.55;flex:1}
+    .social .go{font-weight:900;color:#bdf6ff}
+    .cta{
+      text-align:center;padding:60px 25px;border-radius:28px;
+      background:
+        radial-gradient(circle at 50% 0%,rgba(40,215,255,.2),transparent 45%),
+        linear-gradient(145deg,#10182a,#0a0e19);
+      border:1px solid var(--line);
+    }
+    .cta h2{margin-top:0}
+    footer{
+      max-width:1120px;margin:auto;padding:30px 22px 55px;
+      color:#717a91;font-size:13px;text-align:center;
+    }
+    .scanline{height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.35}
+    @media(max-width:760px){
+      .links{display:none}
+      .story,.socials{grid-template-columns:1fr}
+      h1{letter-spacing:-2px}
+      section{padding:70px 17px}
+      .hero{padding-left:17px;padding-right:17px}
+      .step{grid-template-columns:55px 1fr}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="#inicio">MIGGO<span>17</span></a>
+      <div class="links">
+        <a href="#historia">História</a>
+        <a href="#jornada">Jornada</a>
+        <a href="#redes">Redes</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <div class="tag">🎮 CRIADOR • COMUNIDADE • JORNADA</div>
+        <h1>A jornada de <span class="grad">Miggo17</span></h1>
+        <p class="lead">
+          Por trás de cada vídeo, visualização e conquista existe uma caminhada.
+          Esta página foi criada para contar essa trajetória como uma homenagem
+          e reunir, em um só lugar, as comunidades oficiais do criador.
+        </p>
+        <div class="buttons">
+          <a class="btn primary" href="https://youtube.com/@miggo17" target="_blank" rel="noopener">▶ Ver canal</a>
+          <a class="btn discord" href="https://discord.gg/xCEv8Tvah" target="_blank" rel="noopener">◈ Entrar no Discord</a>
+          <a class="btn tiktok" href="https://www.tiktok.com/@yt_miggo17" target="_blank" rel="noopener">♪ TikTok</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="scanline"></div>
+
+    <section id="historia">
+      <div class="section-head">
+        <div class="eyebrow">A história</div>
+        <h2>Mais do que números</h2>
+        <p>
+          Crescer na internet parece simples quando a gente olha apenas para o resultado.
+          O público vê o vídeo pronto. Quase nunca vê as tentativas, os dias sem retorno,
+          a edição, a constância e a pressão de continuar criando.
+        </p>
+      </div>
+
+      <div class="story">
+        <article class="card">
+          <p class="quote">“Antes do reconhecimento existe uma parte da caminhada que quase ninguém vê.”</p>
+          <p>
+            A trajetória de um criador é construída vídeo após vídeo. Cada publicação exige
+            tempo, criatividade e disposição para continuar mesmo quando o resultado não
+            aparece imediatamente.
+          </p>
+          <p>
+            Por isso, a história do Miggo17 pode ser vista não apenas pelo momento em que
+            ele passou a ser conhecido, mas também pelo esforço necessário para transformar
+            uma ideia em uma comunidade.
+          </p>
+        </article>
+
+        <aside class="card">
+          <div class="eyebrow">Um detalhe importante</div>
+          <h3>Sem inventar uma biografia</h3>
+          <p>
+            Não há, nas fontes públicas que consegui verificar, material suficiente para
+            confirmar detalhes pessoais sobre dificuldades específicas da vida do Miggo17.
+            Então este site não inventa pobreza, problemas familiares ou outros acontecimentos
+            só para deixar a história mais dramática. A internet já tem ficção suficiente.
+          </p>
+          <div class="warning">
+            O texto separa fatos públicos de uma homenagem geral à rotina de quem cria conteúdo.
+            Informações pessoais devem ser adicionadas somente se o próprio Miggo17 tiver contado
+            publicamente.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="jornada">
+      <div class="section-head">
+        <div class="eyebrow">A jornada</div>
+        <h2>O lado difícil de ser criador</h2>
+        <p>
+          Nem toda dificuldade precisa ser transformada em uma história específica.
+          Existem desafios comuns e verificáveis na criação de conteúdo.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="step">
+          <div class="num">01</div>
+          <div>
+            <h3>Começar do zero</h3>
+            <p>Todo canal começa sem uma grande audiência. É preciso publicar antes de saber se alguém vai assistir.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">02</div>
+          <div>
+            <h3>Continuar quando o resultado demora</h3>
+            <p>Visualizações e inscritos não crescem de forma linear. Alguns conteúdos funcionam, outros simplesmente passam despercebidos.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">03</div>
+          <div>
+            <h3>Aprender constantemente</h3>
+            <p>Roteiro, gravação, edição, thumbnail, título e relacionamento com a comunidade fazem parte do trabalho.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">04</div>
+          <div>
+            <h3>Transformar público em comunidade</h3>
+            <p>O Discord e as redes sociais permitem que a relação com quem acompanha o conteúdo continue além de um vídeo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="redes">
+      <div class="section-head">
+        <div class="eyebrow">Oficial</div>
+        <h2>Acompanhe o Miggo17</h2>
+        <p>Os três caminhos abaixo levam diretamente aos links informados pelo criador.</p>
+      </div>
+
+      <div class="socials">
+        <a class="social" href="https://youtube.com/@miggo17" target="_blank" rel="noopener">
+          <div class="icon">▶️</div>
+          <h3>YouTube</h3>
+          <p>Confira os vídeos e acompanhe o conteúdo do canal <strong>@miggo17</strong>.</p>
+          <div class="go">Abrir canal →</div>
+        </a>
+
+        <a class="social" href="https://discord.gg/xCEv8Tvah" target="_blank" rel="noopener">
+          <div class="icon">💬</div>
+          <h3>Discord</h3>
+          <p>Entre na comunidade e participe das conversas com outros fãs e membros.</p>
+          <div class="go">Entrar no servidor →</div>
+        </a>
+
+        <a class="social" href="https://www.tiktok.com/@yt_miggo17" target="_blank" rel="noopener">
+          <div class="icon">♪</div>
+          <h3>TikTok</h3>
+          <p>Acompanhe o perfil <strong>@yt_miggo17</strong> para conteúdos curtos.</p>
+          <div class="go">Abrir TikTok →</div>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <div class="cta">
+        <div class="eyebrow">Faça parte</div>
+        <h2>Uma comunidade não se constrói sozinha.</h2>
+        <p class="lead" style="margin:0 auto 25px;">
+          Assista, acompanhe as redes e participe do Discord. Cada pessoa que acompanha
+          de verdade ajuda a manter a criação acontecendo.
+        </p>
+        <div class="buttons" style="justify-content:center">
+          <a class="btn primary" href="https://youtube.com/@miggo17" target="_blank" rel="noopener">▶ YouTube</a>
+          <a class="btn discord" href="https://discord.gg/xCEv8Tvah" target="_blank" rel="noopener">◈ Discord</a>
+          <a class="btn tiktok" href="https://www.tiktok.com/@yt_miggo17" target="_blank" rel="noopener">♪ TikTok</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Página de homenagem e divulgação do Miggo17 • Links fornecidos pelo solicitante • 2026
+  </footer>
+</body>
+</html>
